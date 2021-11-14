@@ -1,0 +1,695 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Praise&display=swap');
+
+/* root */
+:root{
+    --font-family:'Poppins', sans-serif;
+    --home-title:'Praise', cursive;
+    --bg-layer:rgba(0, 0, 0, 0.60);
+    --light-black:#111;
+    --red:#dc143c;
+    --light-white:#f1f1f1;
+}
+
+/* universal */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+/* HTML */
+html{
+    scroll-behavior: smooth;
+}
+
+/* body */
+body{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Main-Content */
+a{
+    color: unset;
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+.heading{
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    text-align: center;
+    text-align: center;
+    padding: 25px 0;
+}
+
+.heading .title{
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.heading .title p{
+    color: #111;
+}
+
+
+.heading .title span{
+    color: var(--red);
+    font-size: 1.5em;
+}
+
+.home-container,
+.about-container,
+.review-container{
+    width: 100%;
+    height: 100vh;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+/* navbar */
+#navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+    z-index: 100;
+}
+
+#navbar.sticky{
+    background: #111;
+    padding: 10px 80px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.45);
+}
+
+#navbar .logo{
+    font-size: 2.3em;
+    font-weight: 800;
+    color: var(--light-white);
+}
+
+#navbar .logo span{
+    color: var(--red);
+}
+
+#navbar .toggle-box{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+
+#navbar .toggle-box .toggle{
+    width: 60%;
+    height: 3px;
+    background: #fff;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+#navbar .toggle-box .toggle::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s ease;
+}
+
+#navbar .toggle-box .toggle::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    height: 3px;
+    background: #fff; 
+    transition: 0.3s ease;
+}
+
+#navbar .toggle-box.active .toggle{
+    background: transparent;
+    transform: rotate(45deg);
+}
+
+#navbar .toggle-box.active .toggle::after{
+    top:0;
+    transform: rotate(90deg);
+}
+
+#navbar .toggle-box.active .toggle::before{
+    bottom:0;
+}
+
+#navbar .navList-container{
+    position: absolute;
+    right: 110px;
+    top: 85px;
+    padding:20px;
+    padding-left: 50px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+#navbar .navList-container.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+#navbar .navList-container .navList{
+    margin: 2px 0;
+    color: var(--red);
+}
+
+
+/* Home-container */
+.home-container{
+    background: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-container::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:#000;
+    opacity: 0.7;
+}
+
+.home-container .textBx{
+    text-align: left;
+    z-index: 10;
+}
+
+.home-container .textBx h1{
+    font-size: 4em;
+    color: #fff;
+    line-height: 1em;
+    margin-bottom: 40px;
+}
+
+.home-container .textBx h1 span{
+    color: var(--red);
+}
+
+.home-container .textBx p{
+    color: var(--light-white);
+    max-width: 80%;
+    font-size: 1em;
+    margin-bottom: 40px;
+}
+
+
+.home-container .textBx .buttons{
+    display: block;
+}
+
+.home-container .textBx .buttons .btn{
+    padding: 15px 40px;
+    border:1px solid var(--red);
+    color: var(--red);
+    position: relative;
+}
+
+
+.home-container .textBx .buttons .btn::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: #dc143c;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.home-container .textBx .buttons .btn::after{
+    content: 'Learn More.';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: 0.5s;
+    display: none;
+    z-index: 2;
+}
+
+
+.home-container .textBx .buttons .btn:hover:before{
+    width: 100%;
+}
+
+
+.home-container .textBx .buttons .btn:hover{
+    color: transparent;
+}
+
+
+.home-container .textBx .buttons .btn:hover:after{
+    display: flex;
+}
+
+/* About-Container */
+.about-container{
+    background: var(--light-white);
+}
+
+.about-container .textBx h3{
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.about-container .textBx p{
+    max-width: 50%;
+}
+
+.about-container .imgBx{
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60vh;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.about-container .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Product-container */
+.product-container{
+    width: 100%;
+    padding: 40px 100px;
+    padding-top: 180px;
+    background: #ccc;
+    text-align: center;
+    position: relative;
+}
+
+
+.product-container .btn{
+    padding: 10px 30px;
+    background: var(--red);
+    color: #fff;
+}
+
+.product-container .heading span{
+    margin-left: 3px;
+}
+
+.product-container .products{
+    padding: 40px 0;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.product-container .products .productBx{
+    background: #ccc;
+    margin: 10px 10px;
+    width: 350px;
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+
+.product-container .products .productBx img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.product-container .products .productBx .ptext{
+    position: absolute;
+    bottom: -80%;
+    left: 0;
+    width: 100%;
+    height:100%;
+    padding: 8px;
+    background: var(--light-white);
+    text-align: center;
+    transition: 0.5s ease;
+}
+
+
+.product-container .products .productBx:hover img{
+    border-radius:10px ;
+    transform: scale(1.5);
+}
+
+.product-container .products .productBx:hover .ptext{
+    bottom: -40%;
+    padding: 10px 0;
+}
+
+.product-container .products .productBx .ptext .pName{
+    font-weight: 700;
+    font-size: 1.2em;
+    margin-bottom: 3px;
+}
+
+
+.product-container .products .productBx .ptext .pPrice{
+    font-weight: 300;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.product-container .products .productBx .ptext .pDetails{
+    margin-bottom: 30px;
+}
+
+
+.product-container .products .productBx .ptext .btn{
+    padding: 10px 30px;
+    border: 1px solid var(--red);
+    color: var(--red);
+    cursor: pointer;
+    background: transparent;
+}
+
+/* Contact-pop-container */
+.contact-pop-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+.contact-pop-container.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.contact-pop-container .contact-pop-box{
+    background: #fff;
+    padding: 80px 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.contact-pop-container .contact-pop-box #close{
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    font-size: 2em;
+    color: #fff;
+    cursor: pointer;
+}
+
+.contact-pop-container .contact-pop-box .cotact-pop-textBx h3{
+    font-size: 1em;
+    font-weight: 300;
+    margin: 5px 0;
+}
+
+.contact-pop-container .contact-pop-box .cotact-pop-textBx h3 span{
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #111;
+}
+
+
+.contact-pop-container .contact-pop-box .cotact-pop-textBx hr{
+    margin: 30px 0;
+    background: #111 !important;
+} 
+
+.contact-pop-container .contact-pop-box .cotact-pop-textBx .social-media{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-pop-container .contact-pop-box .cotact-pop-textBx .social-media a{
+    color: #ccc;
+    margin: 0 10px;
+    transition: 0.3s ease;
+}
+
+.contact-pop-container .contact-pop-box .cotact-pop-textBx .social-media a:hover{
+    color: #111;
+}
+
+.contact-pop-container .contact-pop-box .cotact-pop-textBx .social-media a ion-icon{
+    font-size: 2em;
+}
+
+/* Review-container */
+.review-container{
+    background: var(--light-white);
+    padding: 40px 150px;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.review-container::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 70%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    background: #fff;
+    z-index: 0;
+}
+
+.review-container .textBx{
+    width: 60%;
+    padding: 20px;
+    text-align: right;
+    z-index: 10;
+}
+
+
+.review-container .textBx h1{
+    font-size: 4em;
+    font-weight: 800;
+    color: var(--red);
+    margin-bottom: 20px;
+}
+
+
+.review-container .textBx .stars{
+    margin-bottom: 30px;
+}
+
+.review-container .textBx .stars ion-icon{
+    font-size: 1.5em;
+    margin-right: 5px;
+    color: #FF9529;
+}
+
+
+.review-container .textBx #lQuote i{
+    margin-right: 5px;
+}
+.review-container .textBx #rQuote i{
+    margin-left: 5px;
+}
+
+
+.review-container .textBx p{
+    position: relative;
+}
+
+
+.review-container .imgBx{
+    position: absolute;
+    left: 120px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60vh;
+    width: 400px;
+    border-radius: 10px;
+    background: #ccc;
+    overflow: hidden;
+}
+
+.review-container .imgBx img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.review-container .rLeft,
+.review-container .rRight{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.review-container .rLeft{
+    left: 40px;
+}
+
+.review-container .rRight{
+    right: 40px;
+}
+
+
+.review-container .rLeft ion-icon,
+.review-container .rRight ion-icon{
+    font-size: 2em;
+}
+
+/* Contact-container */
+.contact-container{
+    width: 100%;
+    padding: 20px 100px;
+    background: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contact-container .contact,
+.contact-container .quickLinks,
+.contact-container .copyright{
+    padding: 40px 0;
+}
+
+
+.contact-container .contact,
+.contact-container .copyright{
+    width: 40%;
+}
+
+.contact-container .contact h1,
+.contact-container .quickLinks h1,
+.contact-container .copyright h1{
+    font-size: 2.5em;
+    color: #f1f1f1;
+    margin-bottom: 40px;
+}
+
+
+.contact-container .contact span{
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 10px;
+}
+
+
+.contact-container .contact p{
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.contact-container .quickLinks{
+    width: 20%;
+    text-align: center;
+    margin: 0 60px;
+}
+
+.contact-container .quickLinks h1{
+    margin-bottom: 80px;
+}
+
+.contact-container .quickLinks a{
+    display: block;
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: #fff;
+    transition: 0.5s ease;
+}
+
+
+.contact-container .quickLinks a:hover{
+    color: var(--red);
+}
+
+
+.contact-container .copyright{
+    text-align: right;
+    padding-left: 20px;
+}
+
+
+.contact-container .copyright h1{
+    margin-bottom: 60px;
+}
+
+.contact-container .copyright p{
+    color: #f1f1f1;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.contact-container .copyright h3{
+    color: var(--red);
+}
